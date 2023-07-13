@@ -1,7 +1,10 @@
+import org.jetbrains.kotlin.kapt3.base.Kapt.kapt
+
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+
 }
 
 android {
@@ -54,22 +57,28 @@ android {
 
 dependencies {
 
-    implementation("androidx.core:core-ktx:1.9.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
-    implementation("androidx.activity:activity-compose:1.7.2")
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.lifecycle.runtime.compose)
+    implementation(libs.androidx.activity.compose)
     implementation(platform("androidx.compose:compose-bom:2023.03.00"))
-    implementation("androidx.compose.ui:ui")
-    implementation("androidx.compose.ui:ui-graphics")
-    implementation("androidx.compose.ui:ui-tooling-preview")
-    implementation("androidx.compose.material3:material3")
-    implementation ("com.google.accompanist:accompanist-permissions:0.25.0")
-    implementation ("androidx.navigation:navigation-compose:2.6.0")
+    implementation(libs.androidx.compose.ui)
+    implementation(libs.androidx.compose.ui.graphics)
+    implementation(libs.androidx.compose.ui.tooling.preview)
+    implementation(libs.androidx.compose.material)
+    implementation (libs.androidx.accopanist.permissions)
+    implementation (libs.androidx.compose.navigation)
+    implementation(libs.androidx.compose.constraintlayout)
 
 //    logging
-    implementation ("com.jakewharton.timber:timber:4.6.0")
+    implementation (libs.timber.logging)
 
     // Dagger Hilt
+    implementation(libs.dagger.hilt)
+    implementation(libs.dagger.hllt.navigation.compose)
+    androidTestImplementation(libs.dagger.hilt.testing)
 
+//    Network-retrofit-okhttp
+    implementation(libs.bundles.retrofit)
 
 
     testImplementation("junit:junit:4.13.2")

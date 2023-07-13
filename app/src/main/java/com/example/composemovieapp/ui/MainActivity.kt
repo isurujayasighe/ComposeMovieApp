@@ -15,12 +15,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.composemovieapp.ui.components.login.LoginScreen
 import com.example.composemovieapp.ui.theme.ComposeMovieAppTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +38,7 @@ class MainActivity : ComponentActivity() {
                         color = MaterialTheme.colorScheme.background
 
                     ) {
-                        NavigationView()
+                        LoginScreen(viewModel = hiltViewModel())
                     }
                 }
 
